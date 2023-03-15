@@ -68,7 +68,6 @@ Binding
 Class
 Comparable
 Continuation
-Data
 Dir
 ENV
 EOFError

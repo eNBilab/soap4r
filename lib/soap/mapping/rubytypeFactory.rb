@@ -6,11 +6,6 @@
 # redistribute it and/or modify it under the same terms of Ruby's license;
 # either the dual license version in 2003, or any later version.
 
-old_verbose, $VERBOSE = $VERBOSE, nil # silence warnings
-DATA_PRESENT = defined?(Data)
-DataShim = Kernel.const_get('Data') if DATA_PRESENT
-$VERBOSE = old_verbose
-
 module SOAP
 module Mapping
 
@@ -198,7 +193,7 @@ class RubytypeFactory < Factory
         param.add('member', ele_member)
         addiv2soapattr(param, obj, map)
       end
-    when ::IO, ::Binding, DataShim, ::Dir, ::File::Stat,
+    when ::IO, ::Binding, ::Dir, ::File::Stat,
         ::MatchData, Method, ::Proc, ::Process::Status, ::Thread,
         ::ThreadGroup, ::UnboundMethod
       return nil
